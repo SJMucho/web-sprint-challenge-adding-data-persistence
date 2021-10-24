@@ -4,10 +4,11 @@ const helmet = require("helmet");
 const server = express();
 const projectRouter = require("./project/router");
 const resourceRouter = require("./resource/router");
+const taskRouter = require("./task/router");
 
 server.use(express.json());
 server.use(helmet());
-server.use("./api", projectRouter, resourceRouter);
+server.use("./api", projectRouter, resourceRouter, taskRouter);
 
 server.use((err, req, res, next) => {
   res.status(500).json({
